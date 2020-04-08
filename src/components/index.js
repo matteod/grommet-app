@@ -5,4 +5,4 @@ export * from "./Notification";
 export * from "./StatusBadge";
 export * from "./UserMenu";
 export * from "./UtilizationCard";
-export * from "./VirtualMachinesCard";
+export * from "./LastPBLValue";

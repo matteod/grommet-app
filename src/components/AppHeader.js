@@ -3,7 +3,7 @@ import React from "react";
 import {
   Anchor,
   Box,
-  DropButton,
+  DropButton, Image,
   Menu,
   ResponsiveContext,
   Text
@@ -11,16 +11,33 @@ import {
 import { Down } from "grommet-icons";
 import { UserMenu } from ".";
 
+import logoImg from '../assets/kme.png'
+
 export const AppHeader = ({ appName, appIcon, userSession, open }) => (
   <Box
     flex={false}
     tag="header"
     direction="row"
-    background="white"
+    background="dark-1"
     align="center"
     justify="between"
     responsive={false}
   >
+
+
+    <Box
+        margin="small"
+        round="xsmall"
+        background={{ opacity: "weak" }}
+        direction="row"
+        align="center"
+        pad={{ horizontal: "small" }}
+    >
+      <Image
+          src={logoImg}
+      />
+    </Box>
+
     <DropButton
       open={open}
       onClose={() => {}}
@@ -28,9 +45,6 @@ export const AppHeader = ({ appName, appIcon, userSession, open }) => (
         <Box pad="small">
           <Text size="medium" margin="small">
             Settings
-          </Text>
-          <Text size="medium" margin="small">
-            Switch Server
           </Text>
           <Text size="medium" margin="small">
             Documention
@@ -61,33 +75,6 @@ export const AppHeader = ({ appName, appIcon, userSession, open }) => (
         <Down color="brand" size="small" />
       </Box>
     </DropButton>
-    <ResponsiveContext.Consumer>
-      {responsive =>
-        responsive === "small" ? (
-          <Menu
-            dropAlign={{ right: "right", top: "top" }}
-            label="view"
-            items={[
-              { label: "Activity", href: "#" },
-              { label: "Utilization", href: "#" },
-              { label: "Virtual Machines", href: "#" }
-            ]}
-          />
-        ) : (
-          <Box
-            margin={{ left: "medium" }}
-            round="xsmall"
-            background={{ color: "white", opacity: "weak" }}
-            direction="row"
-            align="center"
-            pad={{ horizontal: "small" }}
-          >
-            <Anchor href="" label="Activity" margin="small" />
-            <Anchor href="" label="Utilization" margin="small" />
-            <Anchor href="" label="Virtual Machines" margin="small" />
-          </Box>
-        )
-      }
-    </ResponsiveContext.Consumer>
+
   </Box>
 );

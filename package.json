@@ -5,20 +5,42 @@
   "keywords": [],
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
+    "concurrently": "^5.1.0",
     "grommet": "2.11.0",
+    "grommet-controls": "^2.0.4",
     "grommet-icons": "4.4.0",
+    "moment": "^2.24.0",
+    "numeral": "^2.0.6",
     "react": "^16.6.1",
+    "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.6.1",
     "react-router-dom": "5.1.2",
     "styled-components": "5.0.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.0"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "json-server": "json-server --watch api/db.json --port 5000",
+    "dev": "concurrently \"npm start\" \"npm run json-server\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:5000"
 }

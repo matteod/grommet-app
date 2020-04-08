@@ -47,6 +47,15 @@ export const vms = {
   Suspended: 2
 };
 
+export const actualValue = {
+  name: "PREZZO BASE LATTONERIA - Ultimo valore",
+  um: "€/ton",
+  value: 5530.00,
+  lastUpdate: "06/04/2020 - 08:34",
+  lastUpdateUser: "Matteo Domenici",
+  trend: "+"
+};
+
 export const notification = {
   action: "Fix Alert",
   date: "June 10, 2018, 4:38 am",
