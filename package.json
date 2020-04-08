@@ -31,7 +31,8 @@
     "dev": "concurrently \"npm start\" \"npm run json-server\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run json-server"
   },
   "browserslist": {
     "production": [
