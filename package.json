@@ -2,6 +2,9 @@
   "name": "weekly-pattern-5-dashboard",
   "version": "0.0.0",
   "description": "ferret landing page",
+  "engines": {
+    "node": "13.7.x"
+  },
   "keywords": [],
   "main": "index.js",
   "dependencies": {
