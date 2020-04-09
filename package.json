@@ -1,6 +1,9 @@
 {
   "name": "kme-pbl-dashboard-server",
   "version": "0.1.0",
+  "engines": {
+    "node": "13.7.x"
+  },
   "scripts": {
     "client": "cd client && npm start",
     "server": "nodemon server.js",
