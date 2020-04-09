@@ -2,11 +2,11 @@
   "actualValue": [
     {
       "name": "PREZZO BASE LATTONERIA - Ultimo valore",
-      "price": 5730.00,
-      "date": "2020/04/10",
-      "time": "09.34",
+      "price": 5530.00,
+      "date": "06/04/2020",
+      "time": "08.34",
       "lastUpdateUser": "Matteo Domenici",
-      "trend": "status-error"
+      "trend": "status-ok"
     }
   ],
   "graph_data": [

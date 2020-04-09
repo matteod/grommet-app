@@ -1,50 +1,19 @@
 {
-  "name": "weekly-pattern-5-dashboard",
-  "version": "0.0.0",
-  "description": "ferret landing page",
-  "engines": {
-    "node": "13.7.x"
+  "name": "kme-pbl-dashboard-server",
+  "version": "0.1.0",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm server\" \"npm client\"",
+    "heroku-postbuild": "cd client && npm install && npm install -- =dev --no-shrinkwrap && npm run build"
+
   },
-  "keywords": [],
-  "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.2",
-    "chart.js": "^2.9.3",
-    "concurrently": "^5.1.0",
-    "grommet": "2.11.0",
-    "grommet-controls": "^2.0.4",
-    "grommet-icons": "4.4.0",
-    "json-server": "^0.16.1",
-    "moment": "^2.24.0",
-    "numeral": "^2.0.6",
-    "react": "^16.6.1",
-    "react-chartjs-2": "^2.9.0",
-    "react-dom": "^16.6.1",
-    "react-router-dom": "5.1.2",
-    "styled-components": "5.0.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "react-scripts": "^3.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "json-server": "json-server --watch api/db.json --port 5000",
-    "dev": "concurrently \"npm start\" \"npm run json-server\"",
-    "build": "concurrently \"react-scripts build\" \"npm run json-server\"",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "proxy": "http://localhost:5000"
+    "concurrently": "^5.1.0",
+    "json-server": "^0.16.1"
+  }
 }

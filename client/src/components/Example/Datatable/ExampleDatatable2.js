@@ -30,8 +30,8 @@ class ExampleDatatable2 extends Component {
         };
     }
 
-    componentWillMount () {
-        axios.get('/graph_data')
+    componentDidMount () {
+        axios.get('api/graph_data')
             .then(response => {
                 this.setState({data: response.data })
                 //console.log(data);
