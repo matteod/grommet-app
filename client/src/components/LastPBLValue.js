@@ -42,7 +42,7 @@ class LastPBLValue extends React.Component {
     }
     // This is called when an instance of a component is being created and inserted into the DOM.
     componentDidMount () {
-        axios.get('api/actualValue')
+        axios.get('http://localhost:4000/api/actualValue')
             .then(response => {
                 var pblPrice = Numeral(response.data[0].price).format('00, $');
                 this.setState({ pblPrice: pblPrice });

@@ -31,7 +31,7 @@ class ExampleDatatable2 extends Component {
     }
 
     componentDidMount () {
-        axios.get('api/graph_data')
+        axios.get('http://localhost:4000/api/graph_data')
             .then(response => {
                 this.setState({data: response.data })
                 //console.log(data);

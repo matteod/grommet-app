@@ -42,7 +42,7 @@ class Mychart extends Component {
 
     // This is called when an instance of a component is being created and inserted into the DOM.
     async componentDidMount () {
-        axios.get('/graph_data')
+        axios.get('http://localhost:4000/graph_data')
             .then(response => {
                 console.log(response);
                 var tmpLabels = [];
