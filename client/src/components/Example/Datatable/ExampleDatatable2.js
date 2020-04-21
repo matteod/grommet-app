@@ -22,7 +22,7 @@ class ExampleDatatable2 extends Component {
                     render: datum => Moment(datum.date).format("DD-MM-YYYY")
                 },
                 {
-                    "header": "Value", "property": "value", render: datum => Numeral(datum.value).format('00, ')
+                    "header": "Value", "property": "value", render: datum => Numeral(datum.value).format('0[.]')
                 },
                 {"header": "Time", "property": "time"},
 

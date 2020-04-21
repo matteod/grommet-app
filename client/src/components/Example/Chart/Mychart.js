@@ -3,7 +3,6 @@ import {LineChart} from "grommet-controls/chartjs";
 import axios from "axios";
 import Moment from "moment";
 import Numeral from "numeral";
-import {Text} from "grommet";
 
 class Mychart extends Component {
 
@@ -49,7 +48,7 @@ class Mychart extends Component {
                 var tmpDataSetsData = [];
                 Object.keys(response.data).forEach(function(k){
                     tmpLabels.push(Moment(response.data[k]['date']).format("DD-MM-YYYY"));
-                    tmpDataSetsData.push(parseFloat(Numeral(response.data[k]['value']).format('00 ')));
+                    tmpDataSetsData.push(parseFloat(Numeral(response.data[k]['value']).format('0[.]')));
                 });
                 this.setState({
                     Data: {
@@ -110,7 +109,7 @@ class Mychart extends Component {
                                 },
                                 ticks: {
                                     autoSkip: true,
-                                    min: 6000,
+                                    min: 5400,
                                     max: 6400,
                                     stepSize: 100,
                                 }
