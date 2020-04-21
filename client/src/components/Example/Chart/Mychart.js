@@ -54,7 +54,7 @@ class Mychart extends Component {
                     Data: {
                         labels: tmpLabels,
                         datasets: [
-                            {   lineTension: 0.3,
+                            {   lineTension: 0.4,
                                 backgroundColor: 'rgba(11,21,21,0.4)',
                                 borderColor: 'brand',
                                 borderCapStyle: 'butt',
@@ -93,30 +93,41 @@ class Mychart extends Component {
     render() {
         return(
 
-                 <LineChart
-                     data={this.state.Data}
-                     options={{
-                        responsive: true,
-                        scales: {
-                            xAxes: [{
-                                gridLines: {
-                                    display:false
-                                }
-                            }],
-                            yAxes: [{
-                                gridLines: {
-                                    display:true
+                 <LineChart id="my-chart"
+                            data={this.state.Data}
+                            options={{
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                layout: {
+                                    padding: {
+                                        top: 5,
+                                        left: 15,
+                                        right: 15,
+                                        bottom: 15
+                                    }
                                 },
-                                ticks: {
-                                    autoSkip: true,
-                                    min: 5400,
-                                    max: 6400,
-                                    stepSize: 100,
-                                }
+                                legend: {
+                                    display: false
+                                },
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {display: true},
+                                        gridLines: {
+                                            display: true,
+                                        }
+                                    }],
+                                    yAxes: [{
+                                        gridLines: {
+                                            display: true
+                                        },
+                                        ticks: {
+                                            autoSkip: true,
+                                            stepSize: 100,
+                                        }
 
-                            }]
-                        }
-                    }}
+                                    }]
+                                }
+                            }}
                 />
 
         )
