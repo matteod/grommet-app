@@ -76,7 +76,7 @@ class ExampleDatatable extends Component {
 
 
     componentWillMount () {
-        axios.get('/graph_data')
+        axios.get('graph_data')
             .then(response => {
                 this.setState({data: response.data })
                 //console.log(data);
