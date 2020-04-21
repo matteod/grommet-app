@@ -45,7 +45,6 @@ class Mychart extends Component {
         let apiUrl = process.env.REACT_APP_API_URL;
         axios.get(apiUrl + 'graph_data')
             .then(response => {
-                console.log(response);
                 var tmpLabels = [];
                 var tmpDataSetsData = [];
                 Object.keys(response.data).forEach(function(k){
@@ -82,7 +81,6 @@ class Mychart extends Component {
                 });
                 //this.setState({ labels: tmpLabels });
                 //this.setState({ datasets: { ...this.state.datasets[0], data: sampledata} });
-                console.log(tmpDataSetsData);
                 /*this.setState({
                     isLoaded: true
                 })*/
