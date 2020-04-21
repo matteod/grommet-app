@@ -122,7 +122,9 @@ class Mychart extends Component {
                                         },
                                         ticks: {
                                             autoSkip: true,
-                                            stepSize: 100,
+                                            stepSize: 200,
+                                            min: 5000,
+                                            max: 7000,
                                         }
 
                                     }]
