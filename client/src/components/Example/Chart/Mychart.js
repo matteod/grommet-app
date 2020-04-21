@@ -43,7 +43,7 @@ class Mychart extends Component {
     // This is called when an instance of a component is being created and inserted into the DOM.
     async componentDidMount () {
         let apiUrl = process.env.REACT_APP_API_URL;
-        axios.get(apiUrl+'graph_data')
+        axios.get(apiUrl + 'graph_data')
             .then(response => {
                 console.log(response);
                 var tmpLabels = [];
