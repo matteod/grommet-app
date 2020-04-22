@@ -30,11 +30,24 @@ class ExampleDatatable2 extends Component {
         };
     }
 
-    componentDidMount () {
+    saveStateToLocalStorage = () => {
+        localStorage.setItem('tableState', JSON.stringify(this.state));
+    };
+
+    restoreStateFromLocalStorage = () => {
+        const state = JSON.parse(localStorage.getItem('tableState'));
+        this.setState(state);
+    };
+
+    async componentDidMount () {
+
+        if (!navigator.onLine) {
+            this.restoreStateFromLocalStorage();
+        }
         let apiUrl = process.env.REACT_APP_API_URL;
         axios.get(apiUrl + 'graph_data')
             .then(response => {
-                this.setState({data: response.data })
+                this.setState({data: response.data }, this.saveStateToLocalStorage)
                 //console.log(data);
             })
             // Catch any error here

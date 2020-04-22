@@ -40,24 +40,37 @@ class LastPBLValue extends React.Component {
             Icon:''
         };
     }
+
+    saveStateToLocalStorage(){
+        localStorage.setItem('lastPBLValueState', JSON.stringify(this.state));
+    }
+
+    restoreStateFromLocalStorage = () => {
+        const state = JSON.parse(localStorage.getItem('lastPBLValueState'));
+        this.setState(state);
+    };
     // This is called when an instance of a component is being created and inserted into the DOM.
-    componentDidMount () {
+    async componentDidMount () {
+        if (!navigator.onLine) {
+            return this.restoreStateFromLocalStorage();
+        }
         let apiUrl = process.env.REACT_APP_API_URL;
         axios.get(apiUrl + 'actualValue')
             .then(response => {
                 var pblPrice = Numeral(response.data[0].price).format('00, $');
                 this.setState({ pblPrice: pblPrice });
-                this.setState({ pblLastDate: Moment(response.data[0].date).format("DD-MM-YYYY")} );
+                this.setState({ pblLastDate: Moment(response.data[0].date).format("DD-MM-YYYY")});
                 this.setState({ pblLastTime: response.data[0].time} );
-                this.setState( {pblTrend: response.data[0].trend} );
+                this.setState( {pblTrend: response.data[0].trend});
                 if (response.data[0].trend === "status-error"){
-                    this.setState( {pblIcon: CaretDown} );
-                    this.setState( {Icon: <CaretDown color={this.state.pblTrend} size="large"/>} );
+                    this.setState( {pblIcon: CaretDown});
+                    this.setState( {Icon: <CaretDown color={this.state.pblTrend} size="large"/>});
                 }
                 else if (response.data[0].trend === "status-ok") {
-                    this.setState( {pblIcon: CaretUp} );
-                    this.setState( {Icon: <CaretUp color={this.state.pblTrend} size="large" />} );
+                    this.setState( {pblIcon: CaretUp});
+                    this.setState( {Icon: <CaretUp color={this.state.pblTrend} size="large" />});
                 }
+                this.saveStateToLocalStorage();
             })
             // Catch any error here
             .catch(error => {

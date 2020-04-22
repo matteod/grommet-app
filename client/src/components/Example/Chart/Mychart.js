@@ -44,8 +44,20 @@ class Mychart extends Component {
         };
     }
 
+    saveStateToLocalStorage = () => {
+        localStorage.setItem('chartState', JSON.stringify(this.state));
+    };
+
+    restoreStateFromLocalStorage = () => {
+        const state = JSON.parse(localStorage.getItem('chartState'));
+        this.setState(state);
+    };
+
     // This is called when an instance of a component is being created and inserted into the DOM.
     async componentDidMount () {
+        if (!navigator.onLine) {
+            this.restoreStateFromLocalStorage();
+        }
         let apiUrl = process.env.REACT_APP_API_URL;
         axios.get(apiUrl + 'graph_data')
             .then(response => {
@@ -83,7 +95,7 @@ class Mychart extends Component {
                         ]
                     },
                     loading: false
-                });
+                }, this.saveStateToLocalStorage );
                 //this.setState({ labels: tmpLabels });
                 //this.setState({ datasets: { ...this.state.datasets[0], data: sampledata} });
                 /*this.setState({
