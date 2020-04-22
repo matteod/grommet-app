@@ -3,6 +3,8 @@ import {LineChart} from "grommet-controls/chartjs";
 import axios from "axios";
 import Moment from "moment";
 import Numeral from "numeral";
+import {BounceLoader, ClipLoader} from "react-spinners";
+import {Box} from "grommet";
 
 class Mychart extends Component {
 
@@ -36,7 +38,10 @@ class Mychart extends Component {
                 }
             ]
         };*/
-        this.state = { Data: {} };
+        this.state = {
+            Data: {},
+            loading: true
+        };
     }
 
     // This is called when an instance of a component is being created and inserted into the DOM.
@@ -76,7 +81,8 @@ class Mychart extends Component {
                                 data: tmpDataSetsData
                             }
                         ]
-                    }
+                    },
+                    loading: false
                 });
                 //this.setState({ labels: tmpLabels });
                 //this.setState({ datasets: { ...this.state.datasets[0], data: sampledata} });
@@ -91,46 +97,59 @@ class Mychart extends Component {
     }
 
     render() {
-        return(
+        if (this.state.loading)
+            return (
+                <Box className="sweet-loading"
+                     align="center"
+                     pad={{ horizontal: "medium", vertical: "medium" }}
+                     margin={{ horizontal: "medium", top: "medium" }}
+                >
+                    <BounceLoader
+                        size={150}
+                        color={"rgba(206,44,61,0.75)"}
+                        loading={this.state.loading}
+                    />
+                </Box>
+            )
+        return (
+            <LineChart id="my-chart"
+                       data={this.state.Data}
+                       options={{
+                           responsive: true,
+                           maintainAspectRatio: false,
+                           layout: {
+                               padding: {
+                                   top: 5,
+                                   left: 15,
+                                   right: 15,
+                                   bottom: 15
+                               }
+                           },
+                           legend: {
+                               display: false
+                           },
+                           scales: {
+                               xAxes: [{
+                                   ticks: {display: true},
+                                   gridLines: {
+                                       display: true,
+                                   }
+                               }],
+                               yAxes: [{
+                                   gridLines: {
+                                       display: true
+                                   },
+                                   ticks: {
+                                       autoSkip: true,
+                                       stepSize: 200,
+                                       min: 5000,
+                                       max: 7000,
+                                   }
 
-                 <LineChart id="my-chart"
-                            data={this.state.Data}
-                            options={{
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                layout: {
-                                    padding: {
-                                        top: 5,
-                                        left: 15,
-                                        right: 15,
-                                        bottom: 15
-                                    }
-                                },
-                                legend: {
-                                    display: false
-                                },
-                                scales: {
-                                    xAxes: [{
-                                        ticks: {display: true},
-                                        gridLines: {
-                                            display: true,
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        gridLines: {
-                                            display: true
-                                        },
-                                        ticks: {
-                                            autoSkip: true,
-                                            stepSize: 200,
-                                            min: 5000,
-                                            max: 7000,
-                                        }
-
-                                    }]
-                                }
-                            }}
-                />
+                               }]
+                           }
+                       }}
+            />
 
         )
 
