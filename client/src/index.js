@@ -25,6 +25,8 @@ import Mychart from "./components/Example/Chart/Mychart";
 import ExampleDatatable2 from "./components/Example/Datatable/ExampleDatatable2";
 import {LineChart} from "grommet-icons";
 
+import * as serviceWorker from './createServiceWorker';
+
 const userSession = {
   user: {
     name: "Matteo Domenici",
@@ -170,3 +172,8 @@ const App = () => (
   </Grommet>
 );
 render(<App />, document.getElementById("root"));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
