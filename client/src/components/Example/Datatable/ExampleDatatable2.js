@@ -23,7 +23,7 @@ class ExampleDatatable2 extends Component {
                     render: datum => Moment(datum.date).format("DD-MM-YYYY")
                 },
                 {
-                    "header": "Valore €/Ton",
+                    "header": "Valore €/kg",
                     "align": "center",
                     "property": "value",
                     render: datum => Numeral(datum.value).format('0[.]')

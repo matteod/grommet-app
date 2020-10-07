@@ -42,7 +42,7 @@ class Mychart extends Component {
             Data: {},
             loading: true
         };
-        this.stepSize = 30;
+        this.stepSize = 0.30;
     }
 
     saveStateToLocalStorage = () => {

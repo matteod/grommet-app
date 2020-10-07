@@ -20,7 +20,7 @@ Numeral.register("locale", "it", {
         trillion: "t"
     },
     currency: {
-        symbol: "€/ton"
+        symbol: "€/kg"
     }
 });
 // switch between locales
