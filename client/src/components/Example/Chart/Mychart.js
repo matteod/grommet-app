@@ -42,6 +42,7 @@ class Mychart extends Component {
             Data: {},
             loading: true
         };
+        this.stepSize = 30;
     }
 
     saveStateToLocalStorage = () => {
@@ -126,9 +127,10 @@ class Mychart extends Component {
         return (
             <LineChart id="my-chart"
                        data={this.state.Data}
+                       stepSize={this.stepSize}
                        options={{
                            responsive: true,
-                           maintainAspectRatio: false,
+                           maintainAspectRatio: true,
                            layout: {
                                padding: {
                                    top: 5,
@@ -152,10 +154,12 @@ class Mychart extends Component {
                                        display: true
                                    },
                                    ticks: {
-                                       autoSkip: true,
-                                       stepSize: 200,
-                                       min: 5400,
-                                       max: 6600,
+                                       precision : 0,
+                                       stepSize: this.stepSize,
+                                       maxTicksLimit: this.getTicksLimit(Math.min.apply(this, this.state.Data.datasets[0].data), Math.max.apply(this, this.state.Data.datasets[0].data), this.stepSize),
+                                       min: this.getMin(Math.min.apply(this, this.state.Data.datasets[0].data), Math.max.apply(this, this.state.Data.datasets[0].data), this.stepSize),
+                                       max: this.getMax(Math.min.apply(this, this.state.Data.datasets[0].data), Math.max.apply(this, this.state.Data.datasets[0].data), this.stepSize)
+
                                    }
 
                                }]
