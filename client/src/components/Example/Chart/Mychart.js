@@ -130,7 +130,7 @@ class Mychart extends Component {
                        stepSize={this.stepSize}
                        options={{
                            responsive: true,
-                           maintainAspectRatio: true,
+                           maintainAspectRatio: false,
                            layout: {
                                padding: {
                                    top: 5,
