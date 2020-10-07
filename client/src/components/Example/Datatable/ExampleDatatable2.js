@@ -15,16 +15,16 @@ class ExampleDatatable2 extends Component {
             data: [],
             columns: [
                 {
-                    "header": "Date",
+                    "header": "Data",
                     "property": "date",
                     "primary": true,
                     "search": true,
                     render: datum => Moment(datum.date).format("DD-MM-YYYY")
                 },
                 {
-                    "header": "Value", "property": "value", render: datum => Numeral(datum.value).format('0[.]')
+                    "header": "Valore €/Ton", "property": "value", render: datum => Numeral(datum.value).format('0[.]')
                 },
-                {"header": "Time", "property": "time"},
+                {"header": "Orario", "property": "time"},
 
             ],
         };
