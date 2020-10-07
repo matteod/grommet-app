@@ -60,19 +60,40 @@ class ExampleDatatable2 extends Component {
             data, sortable, replace, resizeable, columns,
         } = this.state;
         return (
-            <DataTable
-                columns={columns}
-                data={data}
-                resizeable={resizeable}
-                replace={replace}
-                pad="medium"
-                background={{
-                    header: "dark-4",
-                    body: ["light-1", "light-3"]
-                }}
-                onClickRow={event => alert(JSON.stringify(event.datum, null, 2))}
-                sortable={sortable}
-            />
+            <Accordion flex align='center' justify='center' size="medium">
+                <AccordionPanel label="CMI Cash Milano - Storico Prezzi" width="medium" align="center">
+                    <Box
+                        align="center"
+                        width="medium"
+                        animation="slideDown"
+
+                    >
+                        <DataTable
+                            columns={columns}
+                            data={data}
+                            resizeable={resizeable}
+                            replace={replace}
+                            pad="small"
+                            margin="small"
+                            background={{
+                                //header: "dark-3",
+                                header:
+                                    {
+                                        color: 'dark-1',
+                                        opacity: 'medium',
+                                    },
+                                extend: 'backdrop-filter: blur(8px);',
+
+                                body: ["light-1", "light-3"]
+                            }}
+                            onClickRow={event => alert(JSON.stringify(event.datum, null, 2))}
+                            sortable={sortable}
+                            pin
+                            size="medium"
+                        />
+                    </Box>
+                </AccordionPanel>
+            </Accordion>
         );
     }
 
