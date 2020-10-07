@@ -170,6 +170,25 @@ class Mychart extends Component {
         )
 
     }
+    getMax(min, max, stepSize) {
+        let range = max - min;
+        let stepNumber =  (range - range % stepSize) / stepSize;
+        let margin = range % stepSize;
+        return max + stepSize/2;
+    }
+
+    getMin(min, max, stepSize) {
+        let range = max - min;
+        let stepNumber =  (range - range % stepSize) / stepSize;
+        let margin = range % stepSize;
+        return min - margin - stepSize;
+    }
+
+    getTicksLimit(min, max, stepSize) {
+        let range = max - min;
+        let stepNumber =  (range - range % stepSize) / stepSize;
+        return stepNumber + 3;
+    }
 }
 
 export default Mychart;
