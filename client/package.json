@@ -1,7 +1,7 @@
 {
-  "name": "kme-pbl-dashboard-react",
+  "name": "kme-price-dashboard-react",
   "version": "0.1.0",
-  "description": "KME PBL pricing info",
+  "description": "KME metal pricing info",
   "engines": {
     "node": "12.x"
   },
