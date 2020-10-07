@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {DataTable} from 'grommet';
+import {Accordion, AccordionPanel, Box, DataTable} from 'grommet';
 import Numeral from "numeral";
 import Moment from 'moment';
 import axios from "axios";
