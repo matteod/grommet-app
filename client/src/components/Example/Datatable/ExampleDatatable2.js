@@ -19,12 +19,21 @@ class ExampleDatatable2 extends Component {
                     "property": "date",
                     "primary": true,
                     "search": true,
+                    "align": "center",
                     render: datum => Moment(datum.date).format("DD-MM-YYYY")
                 },
                 {
-                    "header": "Valore €/Ton", "property": "value", render: datum => Numeral(datum.value).format('0[.]')
+                    "header": "Valore €/Ton",
+                    "align": "center",
+                    "property": "value",
+                    render: datum => Numeral(datum.value).format('0[.]')
                 },
-                {"header": "Orario", "property": "time"},
+                {
+                    "header": "Orario",
+                    "align": "center",
+                    "sortable": true,
+                    "property": "time"
+                },
 
             ],
         };
