@@ -83,7 +83,7 @@ class LastPBLValue extends React.Component {
         return (
             <Box round pad="medium" direction="column" background="white" align="center">
                 <Heading level="2" margin="none" size="medium" >
-                    PREZZO BASE LATTONERIA
+                    RAME CASH MILANO CMI
                 </Heading>
                 <Heading level="1" margin="none" size="large" color={this.state.pblTrend} >
                     {this.state.Icon} {this.state.pblPrice}
