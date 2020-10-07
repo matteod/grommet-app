@@ -11,7 +11,7 @@ import { CaretDown } from 'grommet-icons';
 Numeral.register("locale", "it", {
     delimiters: {
         thousands: ".",
-        decimal: ","
+        decimal: "."
     },
     abbreviations: {
         thousand: "k",
