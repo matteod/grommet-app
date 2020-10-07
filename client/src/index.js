@@ -19,7 +19,7 @@ import LastPBLValue from './components/LastPBLValue'
 //import {LastPBLValue} from "./components";
 //import {actualValue} from "./data";
 import Mychart from "./components/Example/Chart/Mychart";
-import userAvatar from './Assets/user_logo.png';
+import userAvatar from './assets/user_logo.png';
 //import ExampleChart from "./components/Example/Chart/ExampleChart";
 
 //import ExampleDatatable from "./components/Example/Datatable/ExampleDatatable";
