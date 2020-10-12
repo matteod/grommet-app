@@ -42,7 +42,7 @@ class Mychart extends Component {
             Data: {},
             loading: true
         };
-        this.stepSize = 0.30;
+        this.stepSize = 0.05;
     }
 
     saveStateToLocalStorage = () => {
@@ -66,7 +66,7 @@ class Mychart extends Component {
                 var tmpDataSetsData = [];
                 Object.keys(response.data).forEach(function(k){
                     tmpLabels.push(Moment(response.data[k]['date']).format("DD-MM-YYYY"));
-                    tmpDataSetsData.push(parseFloat(Numeral(response.data[k]['value']).format('0[.]')));
+                    tmpDataSetsData.push(parseFloat(Numeral(response.data[k]['value']).format('0.0000')));
                 });
                 this.setState({
                     Data: {
@@ -127,7 +127,7 @@ class Mychart extends Component {
         return (
             <LineChart id="my-chart"
                        data={this.state.Data}
-                       stepSize={this.stepSize}
+
                        options={{
                            responsive: true,
                            maintainAspectRatio: false,
@@ -154,8 +154,8 @@ class Mychart extends Component {
                                        display: true
                                    },
                                    ticks: {
-                                       precision : 0,
-                                       stepSize: this.stepSize,
+                                       precision : 6,
+                                       // stepSize: this.stepSize,
                                        maxTicksLimit: this.getTicksLimit(Math.min.apply(this, this.state.Data.datasets[0].data), Math.max.apply(this, this.state.Data.datasets[0].data), this.stepSize),
                                        min: this.getMin(Math.min.apply(this, this.state.Data.datasets[0].data), Math.max.apply(this, this.state.Data.datasets[0].data), this.stepSize),
                                        max: this.getMax(Math.min.apply(this, this.state.Data.datasets[0].data), Math.max.apply(this, this.state.Data.datasets[0].data), this.stepSize)

@@ -26,7 +26,7 @@ class ExampleDatatable2 extends Component {
                     "header": "Valore €/kg",
                     "align": "center",
                     "property": "value",
-                    render: datum => Numeral(datum.value).format('0[.]')
+                    render: datum => Numeral(datum.value).format('0.0000')
                 },
                 {
                     "header": "Orario",

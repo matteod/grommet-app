@@ -10,7 +10,7 @@ import {CaretUp} from 'grommet-icons';
 import { CaretDown } from 'grommet-icons';
 Numeral.register("locale", "it", {
     delimiters: {
-        thousands: ".",
+        thousands: "",
         decimal: "."
     },
     abbreviations: {
@@ -57,7 +57,8 @@ class LastPBLValue extends React.Component {
         let apiUrl = process.env.REACT_APP_API_URL;
         axios.get(apiUrl + 'actualValue')
             .then(response => {
-                var pblPrice = Numeral(response.data[0].price).format('0,0000, $');
+                //var pblPrice = Numeral(response.data[0].price).format('0.000, $');
+                var pblPrice = Numeral(response.data[0].price).format('0.000, $');
                 this.setState({ pblPrice: pblPrice });
                 this.setState({ pblLastDate: Moment(response.data[0].date).format("DD-MM-YYYY")});
                 this.setState({ pblLastTime: response.data[0].time} );
